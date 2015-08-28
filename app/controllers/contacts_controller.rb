@@ -10,10 +10,21 @@ class ContactsController < ApplicationController
         #commiting to the database(saving)
         #if true "message sent"
         #else "error has occured"
+        
+        name = params[:contact][:name]   #[] hash syntax # basically translates to John (name)
+        email = params[:contact][:email]
+        body = params[:contact][:email]
+        
+        ContactMailer.contact_email(name, email, body).deliver
+        # this is in order to deliver an email.
+        # ContactMailer is to refer to contact_mailer.rb 
+        # .contact_email is telling it to check inside ContactMailer to find the same name
+        # ("") to assigns/passes the variables above
+        
         flash[:danger] = "Message sent."
         redirect_to new_contact_path
       else
-        flash[:error] = "Error occured, message has not been sent"
+        flash[:success] = "Error occured, message has not been sent"
         redirect_to new_contact_path
       end
     end
