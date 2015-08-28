@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :contacts #short hand way of generating a bunch of url patterns
+  resources :contacts 
+  #short hand way of generating a bunch of url patterns
   #Use bundle exec rake routes to find out what it gives us ^
   get '/about' => 'pages#about'
   root 'pages#home'
