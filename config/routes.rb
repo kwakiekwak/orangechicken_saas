@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :contacts 
   #short hand way of generating a bunch of url patterns
   #Use bundle exec rake routes to find out what it gives us ^
