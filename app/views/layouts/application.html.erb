@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SportFreaks</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Dev Match</title>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  
+  <%= javascript_include_tag 'application' %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
   <div class='container'>
-    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-nav-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -19,54 +20,32 @@
       </button>
       <%= link_to root_path, class: 'navbar-brand' do %>
         <i class="fa fa-users"></i>
-      Sports Freaks
+        Dev Match
       <% end %>
     </div>
-    
     <div class="collapse navbar-collapse" id="main-nav-collapse">
-<<<<<<< HEAD
-      
-      <!-- video #137 -->
       <div class="nav navbar-nav navbar-right">
         <% if current_user %>
-        <!-- %= equal sign is to show on the html page -->
-          <%= button_to "Sign Out", destroy_user_session_path, class: 'btn btn-primary navbar-btn', method: :delete %>
+          <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: 'btn btn-primary navbar-btn' %>
         <% else %>
           <%= link_to "Log In", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
-          <!-- <a href="/users/sign_in">Log In</a>  same as above!!-->
-          <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success navbar-btn', method: :get %>
         <% end %>
       </div>
-      
-=======
-      <div class="nav navbar-nav navbar-right">
-        <% if current_user %>
-          <%= button_to "Sign Out", destroy_user_session_path, class: 'btn btn-primary navbar-btn', method: :delete %>
-        <% else %>
-          <%= link_to "Log In", new_user_session_path, class: 'btn btn-primary navbar-btn', method: :get %>
-          <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-success navbar-btn', method: :get %>
-        <% end %>
-      </div>
->>>>>>> user_authentication
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "About", about_path %></li>
         <li><%= link_to "Contact Us", new_contact_path %></li>
-        <!--links to Contact Us. -> goes to new contact without /contact/new-->
-
       </ul>
-    </div><!-- /.navbar collapse -->
-   </div>
+    </div><!-- /.navbar-collapse -->
+  </div>
 </nav>
-
-<div class="container">
   
+<div class="container">
   <% flash.each do |key, value| %>
     <%= content_tag :div, value, class: "alert alert-#{key}" %>
   <% end %>
   
   <%= yield %>
- <!--this gets replaced with the file on pages/home.html.erb -->
 </div>
-
+  
 </body>
 </html>
