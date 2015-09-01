@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :contacts 
-  #short hand way of generating a bunch of url patterns
-  #Use bundle exec rake routes to find out what it gives us ^
+  devise_for :users, controllers: { registrations: 'users/registrations' }
+  resources :contacts
   get '/about' => 'pages#about'
   root 'pages#home'
   # The priority is based upon order of creation: first created -> highest priority.
