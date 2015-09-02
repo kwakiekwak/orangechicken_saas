@@ -1,3 +1,6 @@
+<%= link_to "Create your profile!", new_user_profile_path(current_user) if current_user %> <!-- current_user same as user_id:8 -->
+<!--  ^ above is same as <a href="/users/2/profile/new">Create your own profile!</a> -->
+<!-- this is the HOME PAGE -->
 <div class="jumbotron text-center">
   <h1>Welcome to Dev Match</h1>
   <h3>A membership site where entrepreneurs can meet developers.</h3>
