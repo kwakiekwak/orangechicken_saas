@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :plan
+  has_one :profile # linked to app/models/profile.rb
   attr_accessor :stripe_card_token
   
   def save_with_payment
