@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   def save_with_payment
     if valid? # checks for validation/ then it sends off the user the information to stripe 
       customer = Stripe::Customer.create(description: email, plan: plan_id, card: stripe_card_token)
-      self.stripe_customer_token = customer.id 
+      self.stripe_card_token = customer.id  # it was self.stripe_customer_token = customer.id
       save!
     end
   end

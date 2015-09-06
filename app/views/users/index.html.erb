@@ -1,1 +1,28 @@
-List of all users
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <ul class="list-unstyled">
+      <% @users.each do |loser| %> <!-- x is users -->
+        <% if loser.profile %>
+          <li>
+           <div class="well row <%= cycle('white-bg', '') %>">
+            <div class="col-md-4 text-center">
+             <%= link_to loser do %>
+              <%= loser.id %>
+              <%= image_tag loser.profile.avatar.url(:thumb), class: 'user-index-avatar' %>
+             <% end %>
+            </div>
+            
+            <div>
+             <%= link_to loser do %>
+              <h2><%= loser.profile.first_name %> <%= loser.profile.last_name %></h2>
+             <% end %>
+              <p><%= loser.profile.job_title %></p>
+            </div>
+            
+           </div>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+</div>
